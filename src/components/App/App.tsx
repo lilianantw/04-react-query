@@ -9,7 +9,8 @@ import SearchBar from "../SearchBar/SearchBar";
 import MovieGrid from "../MovieGrid/MovieGrid";
 import MovieModal from "../MovieModal/MovieModal";
 import { fetchMovies } from "../../services/movieService";
-import type { Movie, MoviesResponse } from "../../types/movie";
+import type { Movie } from "../../types/movie";
+import type { MoviesResponse } from "../../services/movieService";
 
 const App = () => {
   const [query, setQuery] = useState("");

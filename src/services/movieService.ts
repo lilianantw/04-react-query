@@ -1,6 +1,12 @@
 import axios from "axios";
 import type { MoviesResponse } from "../types/movie";
 
+// Интерфейс для ответа от API TMDB при поиске фильмов
+export interface MoviesResponse {
+  results: Movie[];
+  total_pages: number;
+}
+
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchMovies = async (

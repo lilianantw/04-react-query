@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Pagination from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import styles from "../App/App.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import SearchBar from "../SearchBar/SearchBar";
@@ -20,7 +22,6 @@ const App = () => {
     enabled: query.length > 0,
   });
 
-  // Обработка ошибки
   if (error) {
     toast.error("Не удалось загрузить фильмы. Попробуйте снова.");
   }
@@ -43,8 +44,8 @@ const App = () => {
       <Toaster position="top-right" />
       <SearchBar onSubmit={handleSearch} />
 
-      {isLoading && <p>Загрузка...</p>}
-      {error && <p>Произошла ошибка...</p>}
+      {isLoading && <Loader />}
+      {error && <ErrorMessage message="Произошла ошибка..." />}
 
       {data && data.results && data.results.length > 0 && (
         <>

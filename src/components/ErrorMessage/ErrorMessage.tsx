@@ -1,4 +1,5 @@
 import styles from "./ErrorMessage.module.css";
+
 interface ErrorMessageProps {
   message: string;
 }
